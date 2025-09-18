@@ -1,0 +1,271 @@
+/* ---------------- Reset & Base ---------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background: #f7f8fc; /* Softer background */
+  color: #2c2c2c;
+  scroll-behavior: smooth;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* ---------------- Card Layout ---------------- */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 40px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* ---------------- Header / Landing ---------------- */
+header {
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(120deg, #6a11cb, #2575fc); /* Purple to Blue gradient */
+  color: #fff;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 30px;
+  background: rgba(255,255,255,0.85);
+  padding: 15px 0;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #6a11cb; /* Purple tone */
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  color: #2575fc; /* Blue tone on hover */
+  font-weight: 700;
+}
+
+.landing-content h1 {
+  font-size: 2.8rem;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.landing-content .tagline {
+  font-size: 1.3rem;
+  color: #e0e0e0;
+  margin-bottom: 15px;
+}
+
+.landing-content .intro {
+  font-size: 1rem;
+  color: #f5f5f5;
+}
+
+/* ---------------- About Me ---------------- */
+#about p {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+/* ---------------- Skills ---------------- */
+#skills ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+#skills ul li {
+  margin-bottom: 10px;
+}
+
+/* ---------------- Projects Gallery ---------------- */
+.project-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.project-card {
+  display: block;
+  width: 200px;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  background: #fff;
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.project-card h3 {
+  margin: 10px 0;
+  font-size: 1.1rem;
+  color: #6a11cb;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+/* ---------------- Certificate ---------------- */
+.certificate-thumb {
+  display: block;
+  max-width: 400px;
+  margin: 20px auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.certificate-thumb img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.certificate-thumb:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+/* ---------------- Social Links ---------------- */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.social-icon svg {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.social-icon:hover svg {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 6px #6a11cb);
+}
+
+/* ---------------- Footer ---------------- */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  background: #eef1f7;
+  color: #333;
+  margin-top: 50px;
+  font-size: 0.95rem;
+}
+
+footer a.back-to-top {
+  color: #6a11cb;
+  text-decoration: none;
+  margin-left: 10px;
+  transition: color 0.3s;
+}
+
+footer a.back-to-top:hover {
+  color: #2575fc;
+}
+
+/* ---------------- Project Detail Page ---------------- */
+.project-detail-card {
+  display: flex;
+  max-width: 1000px;
+  margin: 50px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  overflow: hidden;
+  gap: 20px;
+  padding: 20px;
+}
+
+.project-info {
+  flex: 1;
+  padding: 20px;
+}
+
+.project-info h2 {
+  color: #6a11cb;
+  margin-bottom: 15px;
+}
+
+.project-info p {
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.github-link {
+  display: inline-block;
+  padding: 10px 15px;
+  background: linear-gradient(120deg, #6a11cb, #2575fc);
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.github-link:hover {
+  background: linear-gradient(120deg, #2575fc, #6a11cb);
+}
+
+.project-image {
+  flex: 1;
+  text-align: center;
+}
+
+.project-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 768px) {
+  .project-card {
+    width: 100%;
+  }
+
+  .project-detail-card {
+    flex-direction: column;
+  }
+
+  .project-image, .project-info {
+    padding: 10px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
