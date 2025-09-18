@@ -17,8 +17,8 @@ This is a responsive personal portfolio website built using HTML, CSS, and JavaS
 - JavaScript (Vanilla)
 
 ## 📁 Folder Structure
-/
-├── index.html
-├── style.css
-├── script.js
-└── assets/ (images, icons, etc.)
+|
+-index.html
+-style.css
+-script.jss
+-images
