@@ -22,3 +22,8 @@ This is a responsive personal portfolio website built using HTML, CSS, and JavaS
 -style.css
 -script.jss
 -images
+
+## 🌐 Live Demo
+
+Check out the live website here:  
+[https://sumedhn-portfolio.netlify.app/](https://sumedhn-portfolio.netlify.app/)
