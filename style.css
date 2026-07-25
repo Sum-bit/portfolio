@@ -40,7 +40,7 @@ body {
 /* ---------------- Header / Landing (GSAP Home Style) ---------------- */
 header {
   min-height: 100vh;
-  padding: 30px 5%;
+  padding: 25px 5%;
   background: #0e100f;
   display: flex;
   flex-direction: column;
@@ -111,12 +111,12 @@ nav ul li a.active {
 }
 
 .hero-title {
-  font-size: clamp(3.8rem, 11vw, 9.5rem);
+  font-size: clamp(3rem, 7.5vw, 6.8rem); /* Perfectly fitted title size */
   font-weight: 900;
-  line-height: 0.92;
-  letter-spacing: -3px;
+  line-height: 0.95;
+  letter-spacing: -2px;
   color: #f8fafc;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   text-align: left;
 }
 
@@ -137,7 +137,7 @@ nav ul li a.active {
   display: inline-block;
   font-size: 0.6em;
   vertical-align: middle;
-  margin: 0 15px;
+  margin: 0 12px;
   will-change: transform, opacity;
 }
 
@@ -150,13 +150,13 @@ nav ul li a.active {
   justify-content: space-between;
   align-items: flex-end;
   border-top: 1px solid #1e293b;
-  padding-top: 25px;
-  margin-top: 40px;
+  padding-top: 20px;
+  margin-top: 20px;
   width: 100%;
 }
 
 .tagline {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   color: #94a3b8;
   max-width: 420px;
   text-align: left;
@@ -165,7 +165,7 @@ nav ul li a.active {
 .hero-btn {
   border: 1px solid #38bdf8;
   color: #38bdf8;
-  padding: 14px 28px;
+  padding: 12px 24px;
   border-radius: 40px;
   text-decoration: none;
   font-weight: 700;
