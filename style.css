@@ -125,6 +125,13 @@ nav ul li a.active {
   will-change: transform, opacity;
 }
 
+/* Character Span Styling for Simultaneous Reveal */
+.hero-title .char {
+  display: inline-block;
+  transform-origin: 50% 100%;
+  will-change: transform, opacity;
+}
+
 /* Playful Colored Shapes Tucked Between Letters */
 .shape {
   display: inline-block;
