@@ -5,6 +5,40 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==========================================
   // 1. HERO TITLE: GSAP.COM STYLE 3D CHARACTER ENTRANCE
   // ==========================================
+  // Interactive Parallax Floating Card on Mouse Move
+const heroHeader = document.querySelector("header");
+const landingCard = document.querySelector(".landing-content");
+
+if (heroHeader && landingCard) {
+  heroHeader.addEventListener("mousemove", (e) => {
+    const { clientX, clientY } = e;
+    const { innerWidth, innerHeight } = window;
+    
+    // Calculate movement offset relative to center
+    const x = (clientX / innerWidth - 0.5) * 20; // 20px max shift
+    const y = (clientY / innerHeight - 0.5) * 20;
+
+    gsap.to(landingCard, {
+      x: x,
+      y: y,
+      rotationY: x * 0.5,
+      rotationX: -y * 0.5,
+      duration: 0.8,
+      ease: "power2.out"
+    });
+  });
+
+  heroHeader.addEventListener("mouseleave", () => {
+    gsap.to(landingCard, {
+      x: 0,
+      y: 0,
+      rotationY: 0,
+      rotationX: 0,
+      duration: 1,
+      ease: "power2.out"
+    });
+  });
+}
   const titleEl = document.getElementById("hero-name");
   if (titleEl) {
     const text = titleEl.textContent;

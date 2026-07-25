@@ -28,60 +28,106 @@ body {
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
 
-/* ---------------- Header / Landing ---------------- */
+/* ---------------- Header / Landing (Animated Mesh & Glass) ---------------- */
 header {
   text-align: center;
-  padding: 100px 20px;
-  background: linear-gradient(120deg, #6a11cb, #2575fc);
+  padding: 120px 20px 100px;
+  position: relative;
+  overflow: hidden;
+  /* Animated flowing gradient background */
+  background: linear-gradient(-45deg, #4f46e5, #7c3aed, #2563eb, #06b6d4);
+  background-size: 400% 400%;
+  animation: gradientBG 12s ease infinite;
   color: #fff;
 }
 
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Glassmorphism Floating Nav */
 nav ul {
   display: flex;
   justify-content: center;
   list-style: none;
   gap: 30px;
-  background: rgba(255,255,255,0.85);
-  padding: 15px 0;
-  margin-bottom: 30px;
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 16px 30px;
+  margin: 0 auto 50px auto;
+  max-width: 800px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   position: sticky;
-  top: 0;
+  top: 20px;
   z-index: 1000;
-  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+nav ul:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
 }
 
 nav ul li a {
   text-decoration: none;
-  color: #6a11cb;
+  color: #ffffff;
   font-weight: 600;
-  transition: color 0.3s;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  padding: 8px 16px;
+  border-radius: 20px;
 }
 
 nav ul li a:hover,
 nav ul li a.active {
-  color: #2575fc;
-  font-weight: 700;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Glass Hero Content Card */
+.landing-content {
+  display: inline-block;
+  padding: 40px 60px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  max-width: 850px;
+  width: 100%;
 }
 
 .landing-content h1 {
-  font-size: 2.8rem;
-  color: #fff;
-  margin-bottom: 10px;
-  perspective: 400px; /* Perspective depth for GSAP 3D character rotation */
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 40px rgba(255, 255, 255, 0.2);
 }
 
 .landing-content .tagline {
-  font-size: 1.3rem;
-  color: #e0e0e0;
-  margin-bottom: 15px;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin-bottom: 16px;
+  letter-spacing: 0.2px;
 }
 
 .landing-content .intro {
-  font-size: 1rem;
-  color: #f5f5f5;
+  font-size: 1.05rem;
+  color: #cbd5e1;
+  font-weight: 400;
 }
-
 /* --- Character Span Prep for GSAP --- */
 .hero-title .char {
   display: inline-block;
