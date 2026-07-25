@@ -1,39 +1,75 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Register GSAP ScrollTrigger plugin
   gsap.registerPlugin(ScrollTrigger);
 
   // ==========================================
-  // 1. GSAP-STYLE GIANT HEADLINE ENTRANCE
+  // 1. HERO TITLE: GSAP 3D CHARACTER ENTRANCE
   // ==========================================
-  const heroTl = gsap.timeline();
+  const titleEl = document.getElementById("hero-name");
+  if (titleEl) {
+    const text = titleEl.textContent;
+    titleEl.textContent = "";
 
-  heroTl
-    .from("nav", { y: -30, opacity: 0, duration: 0.8, ease: "power3.out" })
-    .from(".hero-title", { 
-      y: 80, 
-      opacity: 0, 
-      duration: 1.2, 
-      ease: "power4.out" 
-    }, "-=0.4")
-    .from(".shape", { 
-      scale: 0, 
-      rotation: -180, 
-      stagger: 0.15, 
-      duration: 0.8, 
-      ease: "back.out(2)" 
-    }, "-=0.6")
-    .from(".hero-footer", { 
-      y: 30, 
-      opacity: 0, 
-      duration: 0.8 
-    }, "-=0.4");
+    // Split headline text into individual character spans
+    text.split("").forEach((char) => {
+      const span = document.createElement("span");
+      span.classList.add("char");
+      span.textContent = char === " " ? "\u00A0" : char;
+      titleEl.appendChild(span);
+    });
 
-  // Continuous Gentle Floating Physics for Accent Shapes
-  gsap.to(".shape.star", { y: -15, rotation: 45, duration: 2.5, repeat: -1, yoyo: true, ease: "sine.inOut" });
-  gsap.to(".shape.flower", { scale: 1.25, rotation: -30, duration: 3, repeat: -1, yoyo: true, ease: "sine.inOut" });
-  gsap.to(".shape.squiggle", { x: 15, duration: 2.2, repeat: -1, yoyo: true, ease: "sine.inOut" });
+    // 3D Staggered entrance wave for every single letter
+    gsap.from("#hero-name .char", {
+      duration: 1,
+      y: 60,
+      rotationX: -90,
+      opacity: 0,
+      stagger: 0.04,
+      ease: "back.out(1.7)",
+      delay: 0.2
+    });
+  }
+
+  // Hero Tagline & Subtitle Sequence
+  gsap.from(".landing-content .tagline", { y: 20, opacity: 0, duration: 0.8, delay: 0.8 });
+  gsap.from(".landing-content .intro", { y: 20, opacity: 0, duration: 0.8, delay: 1.0 });
+
+  // Mouse Parallax Effect on Hero Card
+  const heroHeader = document.querySelector("header");
+  const landingCard = document.querySelector(".landing-content");
+
+  if (heroHeader && landingCard) {
+    heroHeader.addEventListener("mousemove", (e) => {
+      const { clientX, clientY } = e;
+      const { innerWidth, innerHeight } = window;
+      
+      const x = (clientX / innerWidth - 0.5) * 15;
+      const y = (clientY / innerHeight - 0.5) * 15;
+
+      gsap.to(landingCard, {
+        x: x,
+        y: y,
+        rotationY: x * 0.4,
+        rotationX: -y * 0.4,
+        duration: 0.8,
+        ease: "power2.out"
+      });
+    });
+
+    heroHeader.addEventListener("mouseleave", () => {
+      gsap.to(landingCard, {
+        x: 0,
+        y: 0,
+        rotationY: 0,
+        rotationX: 0,
+        duration: 1,
+        ease: "power2.out"
+      });
+    });
+  }
 
   // ==========================================
-  // 2. HORIZONTAL SCROLL FOR PROJECTS
+  // 2. HORIZONTAL SCROLL FOR PROJECTS SECTION
   // ==========================================
   const projectsSection = document.querySelector(".projects-horizontal-section");
   const horizontalWrapper = document.querySelector(".horizontal-wrapper");
@@ -134,7 +170,7 @@ navLinks.forEach((link) => {
   });
 });
 
-// Back to Top
+// Back to Top Link
 const backToTop = document.querySelector(".back-to-top");
 if (backToTop) {
   backToTop.addEventListener("click", function (e) {
