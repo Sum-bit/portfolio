@@ -63,6 +63,7 @@ nav {
   font-size: 1.5rem;
   letter-spacing: -1px;
   color: #fff;
+  text-decoration: none;
 }
 
 nav ul {
@@ -336,6 +337,121 @@ footer a.back-to-top:hover {
   color: #f8fafc;
 }
 
+/* ---------------- Project Detail Pages ---------------- */
+header.detail-header {
+  min-height: auto;
+  padding: 20px 5%;
+}
+
+.project-detail-card {
+  margin-top: 20px;
+  padding: 40px;
+}
+
+.project-tag {
+  display: inline-block;
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  margin-bottom: 12px;
+}
+
+.project-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #f8fafc;
+  margin-bottom: 10px;
+}
+
+.project-subtitle {
+  font-size: 1.1rem;
+  color: #94a3b8;
+  margin-bottom: 30px;
+  max-width: 800px;
+}
+
+.project-banner {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #2d332f;
+  margin-bottom: 40px;
+}
+
+.project-banner img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  display: block;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+}
+
+.project-description h2 {
+  font-size: 1.4rem;
+  color: #38bdf8;
+  margin: 25px 0 12px 0;
+}
+
+.project-description p {
+  color: #cbd5e1;
+  margin-bottom: 15px;
+  line-height: 1.7;
+}
+
+.project-description ul {
+  padding-left: 20px;
+  color: #cbd5e1;
+}
+
+.project-description ul li {
+  margin-bottom: 10px;
+}
+
+.sidebar-block {
+  background: #111312;
+  border: 1px solid #262a27;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.sidebar-block h3 {
+  font-size: 1rem;
+  color: #f8fafc;
+  margin-bottom: 12px;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-tags span {
+  background: #1c211e;
+  border: 1px solid #2d332f;
+  color: #94a3b8;
+  font-size: 0.85rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.detail-github-btn {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
 /* ---------------- Responsive ---------------- */
 @media (max-width: 768px) {
   .landing-content {
@@ -358,5 +474,9 @@ footer a.back-to-top:hover {
 
   nav ul {
     display: none;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
   }
 }
