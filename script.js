@@ -2,40 +2,55 @@ document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
 
   // ==========================================
-  // 1. GSAP HEADLINE ENTRANCE & CONTINUOUS SHAPE LOOPS
+  // 1. CINEMATIC 3-PHASE HERO ENTRANCE
   // ==========================================
   const heroTl = gsap.timeline();
 
+  // Hide accent shapes initially so name appears plain white first
+  gsap.set(".shape", { scale: 0, opacity: 0 });
+
   heroTl
+    // Phase 1: Nav slides down and name enters plain white near center
     .from("nav", { y: -30, opacity: 0, duration: 0.8, ease: "power3.out" })
     .from(".hero-title .line", { 
       y: 80, 
       opacity: 0, 
-      stagger: 0.15,
+      stagger: 0.15, 
       duration: 1, 
       ease: "power4.out" 
-    }, "-=0.4")
-    .from(".shape", { 
-      scale: 0, 
-      rotation: -180, 
-      stagger: 0.15, 
+    }, "-=0.3")
+
+    // Phase 2: Smooth glide from center to left margin
+    .to(".landing-content", {
+      x: 0,
+      duration: 1.2,
+      ease: "power3.inOut"
+    }, "+=0.2")
+
+    // Phase 3: Pop the colorful shapes & reveal tagline/footer
+    .to(".shape", { 
+      scale: 1, 
+      opacity: 1, 
+      rotation: 0, 
+      stagger: 0.2, 
       duration: 0.8, 
-      ease: "back.out(2)" 
-    }, "-=0.6")
+      ease: "back.out(2.5)" 
+    }, "-=0.2")
     .from(".hero-footer", { 
-      y: 30, 
+      y: 20, 
       opacity: 0, 
       duration: 0.8 
     }, "-=0.4");
 
-  // Continuous Floating Loop for the Accent Shapes
+  // Continuous Floating Motion for the Accent Shapes
   gsap.to(".shape.star", { 
     y: -15, 
     rotation: 45, 
     duration: 2.2, 
     repeat: -1, 
     yoyo: true, 
-    ease: "sine.inOut" 
+    ease: "sine.inOut",
+    delay: 3.2
   });
   
   gsap.to(".shape.flower", { 
@@ -44,7 +59,8 @@ document.addEventListener("DOMContentLoaded", () => {
     duration: 2.8, 
     repeat: -1, 
     yoyo: true, 
-    ease: "sine.inOut" 
+    ease: "sine.inOut",
+    delay: 3.2 
   });
   
   gsap.to(".shape.squiggle", { 
@@ -52,7 +68,8 @@ document.addEventListener("DOMContentLoaded", () => {
     duration: 2.0, 
     repeat: -1, 
     yoyo: true, 
-    ease: "sine.inOut" 
+    ease: "sine.inOut",
+    delay: 3.2 
   });
 
   // ==========================================

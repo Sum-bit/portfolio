@@ -11,6 +11,7 @@ body {
   background-color: #0e100f;
   color: #f1f5f9;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 .container {
@@ -45,6 +46,7 @@ header {
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 /* Minimal Top Nav */
@@ -99,11 +101,13 @@ nav ul li a.active {
   background: rgba(56, 189, 248, 0.1);
 }
 
-/* Left-Aligned Giant Headline */
+/* Landing Content Container (Initial Offset for Center-to-Left Slide) */
 .landing-content {
   margin: auto 0;
-  text-align: left; /* Left align content */
+  text-align: left;
   width: 100%;
+  transform: translateX(20vw); /* Positions text near center initially */
+  will-change: transform;
 }
 
 .hero-title {
@@ -126,7 +130,7 @@ nav ul li a.active {
   font-size: 0.6em;
   vertical-align: middle;
   margin: 0 15px;
-  will-change: transform;
+  will-change: transform, opacity;
 }
 
 .shape.star { color: #f59e0b !important; }      /* Vibrant Orange/Yellow */
@@ -326,6 +330,10 @@ footer a.back-to-top:hover {
 
 /* ---------------- Responsive ---------------- */
 @media (max-width: 768px) {
+  .landing-content {
+    transform: translateX(0); /* Disable offset on small screens */
+  }
+
   .hero-footer {
     flex-direction: column;
     align-items: flex-start;
