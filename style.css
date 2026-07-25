@@ -1,4 +1,4 @@
-/* ---------------- Reset & Base ---------------- */
+/* ---------------- Reset & Base (GSAP Dark Canvas) ---------------- */
 * {
   margin: 0;
   padding: 0;
@@ -6,10 +6,10 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   line-height: 1.6;
-  background: #f7f8fc;
-  color: #2c2c2c;
+  background-color: #0e100f; /* Deep dark pitch black */
+  color: #f1f5f9;
   scroll-behavior: smooth;
 }
 
@@ -19,126 +19,151 @@ body {
   padding: 40px 20px;
 }
 
-/* ---------------- Card Layout ---------------- */
+/* ---------------- Dark Card Layout ---------------- */
 .card {
-  background: #fff;
-  border-radius: 12px;
-  padding: 30px;
+  background: #161917;
+  color: #e2e8f0;
+  border-radius: 16px;
+  padding: 35px;
   margin-bottom: 40px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  border: 1px solid #262a27;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-/* ---------------- Header / Landing (Animated Mesh & Glass) ---------------- */
+.card h2 {
+  color: #38bdf8;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+/* ---------------- Header / Landing (GSAP Home Style) ---------------- */
 header {
-  text-align: center;
-  padding: 120px 20px 100px;
-  position: relative;
-  overflow: hidden;
-  /* Animated flowing gradient background */
-  background: linear-gradient(-45deg, #4f46e5, #7c3aed, #2563eb, #06b6d4);
-  background-size: 400% 400%;
-  animation: gradientBG 12s ease infinite;
+  min-height: 100vh;
+  padding: 30px 5%;
+  background: #0e100f;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+/* Minimal Top Nav */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: -1px;
   color: #fff;
 }
 
-@keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Glassmorphism Floating Nav */
 nav ul {
   display: flex;
-  justify-content: center;
   list-style: none;
-  gap: 30px;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  padding: 16px 30px;
-  margin: 0 auto 50px auto;
-  max-width: 800px;
-  border-radius: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  position: sticky;
-  top: 20px;
-  z-index: 1000;
-  transition: all 0.3s ease;
-}
-
-nav ul:hover {
-  background: rgba(255, 255, 255, 0.22);
-  border-color: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  gap: 35px;
+  background: transparent;
 }
 
 nav ul li a {
   text-decoration: none;
-  color: #ffffff;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-  padding: 8px 16px;
-  border-radius: 20px;
+  color: #94a3b8;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.3s;
 }
 
 nav ul li a:hover,
 nav ul li a.active {
   color: #fff;
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
 }
 
-/* Glass Hero Content Card */
-.landing-content {
-  display: inline-block;
-  padding: 40px 60px;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-  max-width: 850px;
-  width: 100%;
-}
-
-.landing-content h1 {
-  font-size: 3.2rem;
-  font-weight: 800;
-  color: #ffffff;
-  margin-bottom: 12px;
-  letter-spacing: -0.5px;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 40px rgba(255, 255, 255, 0.2);
-}
-
-.landing-content .tagline {
-  font-size: 1.35rem;
+.nav-cta {
+  border: 1px solid #334155;
+  padding: 10px 20px;
+  border-radius: 30px;
+  color: #fff;
+  text-decoration: none;
   font-weight: 600;
-  color: #e2e8f0;
-  margin-bottom: 16px;
-  letter-spacing: 0.2px;
+  font-size: 0.9rem;
+  transition: all 0.3s;
 }
 
-.landing-content .intro {
-  font-size: 1.05rem;
-  color: #cbd5e1;
-  font-weight: 400;
+.nav-cta:hover {
+  border-color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
 }
-/* --- Character Span Prep for GSAP --- */
-.hero-title .char {
+
+/* Giant GSAP-Style Headline */
+.landing-content {
+  margin: auto 0;
+  text-align: left;
+}
+
+.hero-title {
+  font-size: clamp(3.8rem, 11vw, 9.5rem); /* Giant responsive typography */
+  font-weight: 900;
+  line-height: 0.92;
+  letter-spacing: -3px;
+  color: #f8fafc;
+  margin-bottom: 40px;
+  perspective: 400px;
+}
+
+/* Playful Shapes Tucked Between Letters */
+.shape {
   display: inline-block;
-  transform-origin: 50% 100%;
-  will-change: transform, opacity;
+  font-size: 0.55em;
+  vertical-align: middle;
+  margin: 0 12px;
+  will-change: transform;
+}
+
+.shape.star { color: #f59e0b; }
+.shape.flower { color: #ec4899; }
+.shape.squiggle { color: #10b981; }
+
+.hero-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: 1px solid #1e293b;
+  padding-top: 25px;
+  margin-top: 40px;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  color: #94a3b8;
+  max-width: 420px;
+}
+
+.hero-btn {
+  border: 1px solid #38bdf8;
+  color: #38bdf8;
+  padding: 14px 28px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.3s;
+}
+
+.hero-btn:hover {
+  background: #38bdf8;
+  color: #0e100f;
+  transform: translateY(-3px);
 }
 
 /* ---------------- About Me ---------------- */
 #about p {
   text-align: left;
   margin-bottom: 15px;
+  color: #cbd5e1;
 }
 
 /* ---------------- Skills ---------------- */
@@ -149,15 +174,18 @@ nav ul li a.active {
 
 #skills ul li {
   margin-bottom: 10px;
+  color: #cbd5e1;
 }
 
 /* ---------------- Horizontal Projects Section ---------------- */
 .projects-horizontal-section {
   position: relative;
   overflow: hidden;
-  background: #f0f4fd;
+  background: #121513;
   padding: 60px 0;
   margin-bottom: 40px;
+  border-top: 1px solid #262a27;
+  border-bottom: 1px solid #262a27;
 }
 
 .horizontal-wrapper {
@@ -169,13 +197,13 @@ nav ul li a.active {
 }
 
 .horizontal-intro h2 {
-  font-size: 2.2rem;
-  color: #6a11cb;
+  font-size: 2.5rem;
+  color: #38bdf8;
   margin-bottom: 10px;
 }
 
 .horizontal-intro p {
-  color: #666;
+  color: #94a3b8;
   font-weight: 500;
 }
 
@@ -186,15 +214,16 @@ nav ul li a.active {
 
 .project-card {
   display: block;
-  width: 280px;
+  width: 300px;
   text-align: center;
   text-decoration: none;
-  color: #333;
-  border-radius: 12px;
+  color: #f8fafc;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-  background: #fff;
-  padding-bottom: 15px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  background: #1c211e;
+  border: 1px solid #2d332f;
+  padding-bottom: 18px;
   will-change: transform;
 }
 
@@ -208,7 +237,7 @@ nav ul li a.active {
 .project-card h3 {
   margin-top: 15px;
   font-size: 1.15rem;
-  color: #6a11cb;
+  color: #38bdf8;
 }
 
 /* ---------------- Certificate Grid ---------------- */
@@ -222,12 +251,13 @@ nav ul li a.active {
 
 .certificate-thumb {
   display: block;
-  width: 450px;
+  width: 440px;
   max-width: 100%;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-  background: #fff;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  background: #1c211e;
+  border: 1px solid #2d332f;
   will-change: transform;
 }
 
@@ -237,7 +267,6 @@ nav ul li a.active {
   display: block;
 }
 
-/* Let GSAP handle transforms completely */
 .project-card:hover, 
 .certificate-thumb:hover {
   transform: none;
@@ -263,34 +292,41 @@ nav ul li a.active {
 }
 
 .social-icon:hover svg {
-  filter: drop-shadow(0 0 6px #6a11cb);
+  filter: drop-shadow(0 0 10px #38bdf8);
 }
 
 /* ---------------- Footer ---------------- */
 footer {
   text-align: center;
-  padding: 20px 0;
-  background: #eef1f7;
-  color: #333;
+  padding: 30px 0;
+  background: #090a09;
+  color: #64748b;
   margin-top: 50px;
   font-size: 0.95rem;
+  border-top: 1px solid #1e293b;
 }
 
 footer a.back-to-top {
-  color: #6a11cb;
+  color: #38bdf8;
   text-decoration: none;
   margin-left: 10px;
   transition: color 0.3s;
 }
 
 footer a.back-to-top:hover {
-  color: #2575fc;
+  color: #f8fafc;
 }
 
 /* ---------------- Responsive ---------------- */
 @media (max-width: 768px) {
+  .hero-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
   .project-card {
-    width: 240px;
+    width: 250px;
   }
 
   .certificate-thumb {
@@ -298,7 +334,6 @@ footer a.back-to-top:hover {
   }
 
   nav ul {
-    flex-direction: column;
-    gap: 15px;
+    display: none; /* Mobile menu can be expanded as needed */
   }
 }
