@@ -8,7 +8,7 @@
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   line-height: 1.6;
-  background-color: #0e100f; /* Deep dark pitch black */
+  background-color: #0e100f;
   color: #f1f5f9;
   scroll-behavior: smooth;
 }
@@ -99,34 +99,39 @@ nav ul li a.active {
   background: rgba(56, 189, 248, 0.1);
 }
 
-/* Giant GSAP-Style Headline */
+/* Left-Aligned Giant Headline */
 .landing-content {
   margin: auto 0;
-  text-align: left;
+  text-align: left; /* Left align content */
+  width: 100%;
 }
 
 .hero-title {
-  font-size: clamp(3.8rem, 11vw, 9.5rem); /* Giant responsive typography */
+  font-size: clamp(3.8rem, 11vw, 9.5rem);
   font-weight: 900;
   line-height: 0.92;
   letter-spacing: -3px;
   color: #f8fafc;
   margin-bottom: 40px;
-  perspective: 400px;
+  text-align: left;
 }
 
-/* Playful Shapes Tucked Between Letters */
+.hero-title .line {
+  display: inline-block;
+}
+
+/* Playful Colored Shapes Tucked Between Letters */
 .shape {
   display: inline-block;
-  font-size: 0.55em;
+  font-size: 0.6em;
   vertical-align: middle;
-  margin: 0 12px;
+  margin: 0 15px;
   will-change: transform;
 }
 
-.shape.star { color: #f59e0b; }
-.shape.flower { color: #ec4899; }
-.shape.squiggle { color: #10b981; }
+.shape.star { color: #f59e0b !important; }      /* Vibrant Orange/Yellow */
+.shape.flower { color: #ec4899 !important; }    /* Vibrant Pink */
+.shape.squiggle { color: #10b981 !important; }  /* Vibrant Emerald Green */
 
 .hero-footer {
   display: flex;
@@ -135,12 +140,14 @@ nav ul li a.active {
   border-top: 1px solid #1e293b;
   padding-top: 25px;
   margin-top: 40px;
+  width: 100%;
 }
 
 .tagline {
   font-size: 1.2rem;
   color: #94a3b8;
   max-width: 420px;
+  text-align: left;
 }
 
 .hero-btn {
@@ -334,6 +341,6 @@ footer a.back-to-top:hover {
   }
 
   nav ul {
-    display: none; /* Mobile menu can be expanded as needed */
+    display: none;
   }
 }
