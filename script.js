@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
 
   // ==========================================
-  // 1. CINEMATIC 3-PHASE HERO ENTRANCE
+  // 1. CINEMATIC 3-PHASE HERO TIMELINE
   // ==========================================
   const heroTl = gsap.timeline();
 
@@ -10,37 +10,37 @@ document.addEventListener("DOMContentLoaded", () => {
   gsap.set(".shape", { scale: 0, opacity: 0 });
 
   heroTl
-    // Phase 1: Nav slides down and name enters plain white near center
+    // Phase 1: Nav slides down and lines enter sequential (line-by-line) while centered
     .from("nav", { y: -30, opacity: 0, duration: 0.8, ease: "power3.out" })
     .from(".hero-title .line", { 
-      y: 80, 
+      y: 60, 
       opacity: 0, 
-      stagger: 0.15, 
-      duration: 1, 
-      ease: "power4.out" 
+      stagger: 0.25,      // Staggers each line (Sumedh -> Naidu -> Akula)
+      duration: 0.9, 
+      ease: "power3.out" 
     }, "-=0.3")
 
     // Phase 2: Smooth glide from center to left margin
     .to(".landing-content", {
       x: 0,
-      duration: 1.2,
+      duration: 1.1,
       ease: "power3.inOut"
-    }, "+=0.2")
+    }, "+=0.3")
 
     // Phase 3: Pop the colorful shapes & reveal tagline/footer
     .to(".shape", { 
       scale: 1, 
       opacity: 1, 
       rotation: 0, 
-      stagger: 0.2, 
-      duration: 0.8, 
+      stagger: 0.18, 
+      duration: 0.7, 
       ease: "back.out(2.5)" 
     }, "-=0.2")
     .from(".hero-footer", { 
       y: 20, 
       opacity: 0, 
       duration: 0.8 
-    }, "-=0.4");
+    }, "-=0.3");
 
   // Continuous Floating Motion for the Accent Shapes
   gsap.to(".shape.star", { 
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     repeat: -1, 
     yoyo: true, 
     ease: "sine.inOut",
-    delay: 3.2
+    delay: 3.5
   });
   
   gsap.to(".shape.flower", { 
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     repeat: -1, 
     yoyo: true, 
     ease: "sine.inOut",
-    delay: 3.2 
+    delay: 3.5 
   });
   
   gsap.to(".shape.squiggle", { 
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
     repeat: -1, 
     yoyo: true, 
     ease: "sine.inOut",
-    delay: 3.2 
+    delay: 3.5 
   });
 
   // ==========================================
