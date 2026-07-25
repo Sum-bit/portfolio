@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project 1 | Sumedh Naidu Akula</title>
+  <title>Task Management System | Sumedh Naidu Akula</title>
   <link rel="stylesheet" href="style.css">
+  
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 </head>
 <body>
   <header>
@@ -19,7 +22,7 @@
     </nav>
   </header>
 
-  <!-- Project Detail -->
+  <!-- Project Detail Section -->
   <section id="project-detail">
     <div class="container project-detail-card">
       <div class="project-info">
@@ -29,7 +32,7 @@
             Backend: Developed with Django + Django REST Framework, exposing secure RESTful APIs for task and user management.
             Authentication: Implemented using dj-rest-auth and Django Allauth, supporting email/OTP verification and token-based session handling.
             Database: Uses SQLite/PostgreSQL with Django Admin for backend management.
-            Security: Role-based access control and permission-protected API routes ensure that only authorized users can modify tasks..</p>
+            Security: Role-based access control and permission-protected API routes ensure that only authorized users can modify tasks.</p>
         <a href="https://github.com/Sum-bit/task-management-system" target="_blank" class="github-link">View on GitHub</a>
       </div>
       <div class="project-image">
@@ -37,5 +40,29 @@
       </div>
     </div>
   </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Clean GSAP split entrance animation
+      const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 0.8 } });
+
+      tl.from("nav", { y: -40, opacity: 0, duration: 0.8 })
+        .from(".project-info h2", { x: -30, opacity: 0 }, "-=0.3")
+        .from(".project-info p", { y: 20, opacity: 0 }, "-=0.4")
+        .from(".github-link", { scale: 0.8, opacity: 0, duration: 0.5 }, "-=0.3")
+        .from(".project-image img", { x: 40, opacity: 0, duration: 1 }, "-=0.8");
+
+      // GSAP Button Hover
+      const btn = document.querySelector(".github-link");
+      if (btn) {
+        btn.addEventListener("mouseenter", () => {
+          gsap.to(btn, { scale: 1.08, duration: 0.3, ease: "back.out(2)" });
+        });
+        btn.addEventListener("mouseleave", () => {
+          gsap.to(btn, { scale: 1, duration: 0.2, ease: "power1.out" });
+        });
+      }
+    });
+  </script>
 </body>
 </html>

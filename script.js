@@ -1,23 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Register GSAP ScrollTrigger plugin
   gsap.registerPlugin(ScrollTrigger);
 
   // ==========================================
-  // 1. GSAP: CHARACTER-BY-CHARACTER TITLE SPLIT (gsap.com style)
+  // 1. HERO TITLE: GSAP.COM STYLE 3D CHARACTER ENTRANCE
   // ==========================================
   const titleEl = document.getElementById("hero-name");
   if (titleEl) {
     const text = titleEl.textContent;
     titleEl.textContent = "";
 
-    // Split text into wrapped character spans
+    // Split headline text into individual character spans
     text.split("").forEach((char) => {
       const span = document.createElement("span");
       span.classList.add("char");
-      span.textContent = char === " " ? "\u00A0" : char; // Handle spaces
+      span.textContent = char === " " ? "\u00A0" : char;
       titleEl.appendChild(span);
     });
 
-    // 3D Staggered Entrance for every character
+    // 3D Staggered entrance wave for every single letter
     gsap.from("#hero-name .char", {
       duration: 1,
       y: 80,
@@ -34,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
   gsap.from(".landing-content .intro", { y: 20, opacity: 0, duration: 0.8, delay: 1.0 });
 
   // ==========================================
-  // 2. GSAP: HORIZONTAL SCROLL FOR PROJECTS (Option 2)
+  // 2. HORIZONTAL SCROLL FOR PROJECTS SECTION
   // ==========================================
   const projectsSection = document.querySelector(".projects-horizontal-section");
   const horizontalWrapper = document.querySelector(".horizontal-wrapper");
@@ -56,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ==========================================
-  // 3. GSAP: VERTICAL CARD REVEALS
+  // 3. VERTICAL CARD REVEALS ON SCROLL
   // ==========================================
   gsap.utils.toArray(".card").forEach((card) => {
     gsap.from(card, {
@@ -72,41 +73,55 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Stagger Skills List Items
+  gsap.from("#skills ul li", {
+    scrollTrigger: {
+      trigger: "#skills",
+      start: "top 80%"
+    },
+    x: -20,
+    opacity: 0,
+    stagger: 0.08,
+    duration: 0.5,
+    ease: "power1.out"
+  });
+
   // ==========================================
-  // 4. ANIME.JS: ELASTIC HOVER INTERACTIONS
+  // 4. GSAP PURE HOVER MICRO-INTERACTIONS
   // ==========================================
-  // Project Cards
+
+  // Project Cards Spring Bounce
   document.querySelectorAll(".project-card").forEach((card) => {
     card.addEventListener("mouseenter", () => {
-      anime({ targets: card, scale: 1.05, translateY: -8, duration: 800, easing: "easeOutElastic(1, .6)" });
+      gsap.to(card, { scale: 1.05, y: -8, duration: 0.4, ease: "back.out(2)" });
     });
     card.addEventListener("mouseleave", () => {
-      anime({ targets: card, scale: 1, translateY: 0, duration: 400, easing: "easeOutQuad" });
+      gsap.to(card, { scale: 1, y: 0, duration: 0.3, ease: "power2.out" });
     });
   });
 
-  // Certificate Thumbnails
+  // Certificate Thumbnails Spring Hover
   document.querySelectorAll(".certificate-thumb").forEach((thumb) => {
     thumb.addEventListener("mouseenter", () => {
-      anime({ targets: thumb, scale: 1.03, duration: 600, easing: "easeOutElastic(1, .5)" });
+      gsap.to(thumb, { scale: 1.03, duration: 0.4, ease: "back.out(1.7)" });
     });
     thumb.addEventListener("mouseleave", () => {
-      anime({ targets: thumb, scale: 1, duration: 400, easing: "easeOutQuad" });
+      gsap.to(thumb, { scale: 1, duration: 0.3, ease: "power2.out" });
     });
   });
 
-  // Social Icons
+  // Social Icons Magnetic Pop
   document.querySelectorAll(".social-icon").forEach((icon) => {
     icon.addEventListener("mouseenter", () => {
-      anime({ targets: icon, scale: 1.25, duration: 600, easing: "easeOutElastic(1, .4)" });
+      gsap.to(icon, { scale: 1.25, duration: 0.4, ease: "back.out(2.5)" });
     });
     icon.addEventListener("mouseleave", () => {
-      anime({ targets: icon, scale: 1, duration: 300, easing: "easeOutQuad" });
+      gsap.to(icon, { scale: 1, duration: 0.3, ease: "power2.out" });
     });
   });
 });
 
-// Smooth Navigation Scrolling
+// Smooth Navigation Links
 const navLinks = document.querySelectorAll("nav ul li a");
 navLinks.forEach((link) => {
   link.addEventListener("click", function (e) {
@@ -120,3 +135,12 @@ navLinks.forEach((link) => {
     }
   });
 });
+
+// Back To Top
+const backToTop = document.querySelector(".back-to-top");
+if (backToTop) {
+  backToTop.addEventListener("click", function (e) {
+    e.preventDefault();
+    document.getElementById("top").scrollIntoView({ behavior: "smooth" });
+  });
+}
